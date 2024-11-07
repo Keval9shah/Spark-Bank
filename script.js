@@ -43,5 +43,5 @@ function showLoginTab() {
     $("#password-input").placeholder = "Password";
 
     // move the process indicator to center
-    $(".process-indicator").src = "./assets/images/process-indicator-left-filled.svg";
+    $(".process-indicator").src = "./assets/images/process-indicator-center-filled.svg";
 }
