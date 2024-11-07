@@ -72,21 +72,21 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="./assets/images/favicon.png" />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./assets/styles/global.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Bank</title>
 </head>
 
 <body>
     <div class="grd">
-        <div class="g1"><img class="prop" src="money.jpg"></div>
+        <div class="g1"><img class="prop" src="./assets/images/money.jpg"></div>
         <div class="g2">
-            <img class="logo" src="logo.png" alt="">
-            <img class="prop2" src="prop2.svg" alt="">
+            <img class="logo" src="./assets/images/logo.png" alt="Logo">
+            <img class="prop2" src="./assets/images/process-indicator-left-filled.svg" alt="">
             <div class="txt">Welcome to a <span class="safe">safe</span> Banking Paradise</div>
             <div class="login">
                 <div class="sign">
@@ -97,7 +97,7 @@ if(isset($_POST['submit'])){
                         Log in
                     </div>
                 </div>
-                <div class="sel"></div>
+                <div class="pill"></div>
                 <div class="fields">
                     <form action="" method="POST">
                         <div class="fields1">
