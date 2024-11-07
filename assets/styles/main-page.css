@@ -56,11 +56,6 @@ body {
     width: 0;
     border-right: 1.7px solid rgb(145, 145, 145);
     height: 24px;
-}
-
-.trp,
-.thp,
-.pfp {
     transition: all ease-in-out 0.3s;
 }
 
@@ -81,10 +76,11 @@ body {
     background-color: black;
 }
 
-.pf,
-.tr,
-.th,
-.ul {
+.tab-content {
+    display: none;
+}
+
+.tab {
     font-size: 20px;
     padding: 9px 12px;
     margin: 4px;

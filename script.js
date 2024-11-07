@@ -1,4 +1,4 @@
-const $ = (element) => document.querySelector(element);
+const $ = (selector) => document.querySelector(selector);
 const signupTab = $(".signup-tab");
 const loginTab = $(".login-tab")
 const passwordInput = $(".password-input");
