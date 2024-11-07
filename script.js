@@ -1,36 +1,47 @@
-var supp = document.getElementsByClassName("sup")[0];
-var linn = document.getElementsByClassName("lin")[0]
-var pill = document.getElementsByClassName("pill")[0];
-var name_fld = document.getElementsByClassName("name")[0];
-var email_fld = document.getElementsByClassName("email")[0];
-var pass = document.getElementsByClassName("anp")[0];
+const $ = (element) => document.querySelector(element);
+const signupTab = $(".signup-tab");
+const loginTab = $(".login-tab")
+const passwordInput = $(".password-input");
 
-function sup() {
-    pill.style.left = "4px";
-    pill.style.width = "88px";
-    linn.classList.remove("sel1");
-    supp.classList.add("sel1");
-    name_fld.style.display = "block";
-    email_fld.style.marginLeft = "40px";
-    pass.style.width = "240px";
-    pass.placeholder = "Enter Password";
-    document.getElementById("ane").style.width = "180px";
-    document.getElementById("nm").required = true;
-    // <img class="prop2" src="./assets/images/process-indicator-left-filled.svg" alt="">
-    document.getElementsByClassName("prop2")[0].src = "./assets/images/process-indicator-left-filled.svg";
+function showSignupTab() {
+
+    // move pill on the signup tab
+    $(".pill").style.left = 4 + "px";
+    $(".pill").style.width = signupTab.offsetWidth + "px";
+
+    // change the current tab (dark color)
+    loginTab.classList.remove("current-tab");
+    signupTab.classList.add("current-tab");
+
+    // change the input fields
+    $(".name").style.display = "block";
+    $("#name-input").required = true;
+    $("#email-input").style.width = "180px";
+    $("#password-input").style.width = "240px";
+    $("#password-input").placeholder = "Enter Password";
+
+    // move the process indicator to start
+    $(".process-indicator").src = "./assets/images/process-indicator-left-filled.svg";
 }
 
-function lin() {
-    linn.classList.add("sel1");
-    supp.classList.remove("sel1");
-    pill.style.left = "96px";
-    pill.style.width = "76px";
-    document.getElementById("nm").value = "";
-    name_fld.style.display = "none";
-    email_fld.style.marginLeft = "0";
-    pass.style.width = "170px";
-    pass.placeholder = "Password";
-    document.getElementById("ane").style.width = "200px";
-    document.getElementById("nm").required = false;
-    document.getElementsByClassName("prop2")[0].src = "./assets/images/process-indicator-left-filled.svg";
+function showLoginTab() {
+
+    // move pill on the login tab
+    $(".pill").style.left = loginTab.offsetLeft - signupTab.offsetLeft + 2 + "px";
+    $(".pill").style.width = loginTab.offsetWidth + "px";
+
+    // change the current tab (dark color)
+    loginTab.classList.add("current-tab");
+    signupTab.classList.remove("current-tab");
+
+    // change the input fields
+    $(".name").style.display = "none";
+    $("#name-input").value = "";
+    $("#name-input").required = false;
+    $("#email-input").style.width = "200px";
+    $("#password-input").style.width = "170px";
+    $("#password-input").placeholder = "Password";
+
+    // move the process indicator to center
+    $(".process-indicator").src = "./assets/images/process-indicator-left-filled.svg";
 }

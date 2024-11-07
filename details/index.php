@@ -12,8 +12,8 @@ if (!array_key_exists("acc_no", $_SESSION)) {
     window.location.href = "../redirect";
     </script>';
 }
-$acnt = $_SESSION['acc_no'];
-$res = mysqli_query($con, "SELECT * FROM user WHERE acc_no='$acnt'");
+$account_number = $_SESSION['account_number'];
+$res = mysqli_query($con, "SELECT * FROM user WHERE acc_no='$account_number'");
 $row = mysqli_fetch_assoc($res);
 // echo $row['acc_no'],", ",$row['name'],", ",$row['balance'];
 // echo ".";
@@ -39,7 +39,7 @@ $email = $row['email'];
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
     <title><?php echo $fullname ?></title>
-    <link rel="stylesheet" href=".././assets/styles/style1.css">
+    <link rel="stylesheet" href=".././assets/styles/main-page.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;600&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/clementfive" type="text/css"/> -->
@@ -55,7 +55,7 @@ $email = $row['email'];
         Log Out
     </div>
     <div class="navigation">
-        <div class="pf sel1" onclick="prfl()">
+        <div class="pf current-tab" onclick="prfl()">
             <?php echo $name; ?>'s profile
         </div>
         <div class="partition pfp"></div>
@@ -102,7 +102,7 @@ $email = $row['email'];
                 <mark class="accn"><?php echo $acc_no; ?></mark>
             </div>
             <br>
-            <div class="bal">Balance <mark class="bala">₹<?php echo mysqli_fetch_assoc(mysqli_query($con, "SELECT balance FROM user WHERE acc_no='$acnt'"))['balance']; ?></mark></div>
+            <div class="bal">Balance <mark class="bala">₹<?php echo mysqli_fetch_assoc(mysqli_query($con, "SELECT balance FROM user WHERE acc_no='$account_number'"))['balance']; ?></mark></div>
         </div>
     </div>
 
@@ -163,10 +163,10 @@ $email = $row['email'];
 
 
         function prfl() {
-            tr.classList.remove("sel1");
-            th.classList.remove("sel1");
-            ul.classList.remove("sel1");
-            pf.classList.add("sel1");
+            tr.classList.remove("current-tab");
+            th.classList.remove("current-tab");
+            ul.classList.remove("current-tab");
+            pf.classList.add("current-tab");
 
             pill.style.left = pf.offsetLeft + "px";
             pill.style.width = pf.offsetWidth + "px";
@@ -196,10 +196,10 @@ $email = $row['email'];
         }
 
         function trct() {
-            pf.classList.remove("sel1");
-            th.classList.remove("sel1");
-            ul.classList.remove("sel1");
-            tr.classList.add("sel1");
+            pf.classList.remove("current-tab");
+            th.classList.remove("current-tab");
+            ul.classList.remove("current-tab");
+            tr.classList.add("current-tab");
 
             pill.style.left = tr.offsetLeft + "px";
             pill.style.width = tr.offsetWidth + "px";
@@ -224,10 +224,10 @@ $email = $row['email'];
         // function moveTabPillTo(element) { 
         // }
         function trht() {
-            tr.classList.remove("sel1");
-            pf.classList.remove("sel1");
-            ul.classList.remove("sel1");
-            th.classList.add("sel1");
+            tr.classList.remove("current-tab");
+            pf.classList.remove("current-tab");
+            ul.classList.remove("current-tab");
+            th.classList.add("current-tab");
 
             pfp.style.visibility = "visible";
             trp.style.visibility = "hidden";
@@ -276,10 +276,10 @@ $email = $row['email'];
         }
 
         function usli() {
-            tr.classList.remove("sel1");
-            th.classList.remove("sel1");
-            pf.classList.remove("sel1");
-            ul.classList.add("sel1");
+            tr.classList.remove("current-tab");
+            th.classList.remove("current-tab");
+            pf.classList.remove("current-tab");
+            ul.classList.add("current-tab");
 
             pfp.style.visibility = "visible";
             trp.style.visibility = "visible";

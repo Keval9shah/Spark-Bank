@@ -2,9 +2,8 @@
 require('../connection.inc.php');
 
 session_start();
-$acnt = $_SESSION['acc_no'];
-$acc_no = $acnt;
-$res = mysqli_query($con, "SELECT name FROM user WHERE acc_no='$acnt'");
+$account_number = $_SESSION['account_number'];
+$res = mysqli_query($con, "SELECT name FROM user WHERE acc_no='$account_number'");
 $row = mysqli_fetch_assoc($res);
 // echo $row['acc_no'],", ",$row['name'],", ",$row['balance'];
 // echo ".";
@@ -12,7 +11,7 @@ $fullname = $row['name'];
 if (isset($_POST['submit'])) {
     $receiver = $_POST['receiver'];
     $amount = $_POST['amount'];
-    $res1 = mysqli_query($con, "SELECT * FROM user WHERE acc_no='$acnt'");
+    $res1 = mysqli_query($con, "SELECT * FROM user WHERE acc_no='$account_number'");
     $row1 = mysqli_fetch_assoc($res1);
     if (strpos($receiver, "@")) {
         $r_email = strtolower($receiver);
@@ -36,10 +35,10 @@ if (isset($_POST['submit'])) {
         $namount = -$amount;
 
         if (intval($amount) > 0 && intval($amount) < intval($s_bal)) {
-            if ($acc_no != $r_acc_no) {
+            if ($account_number != $r_acc_no) {
                 mysqli_query($con, "UPDATE user SET balance='$r_newbal' WHERE acc_no='$r_acc_no'");
-                mysqli_query($con, "UPDATE user SET balance='$s_newbal' WHERE acc_no='$acc_no'");
-                mysqli_query($con, "INSERT INTO transaction (p_name,s_name,acc_no,amount,current_bal) VALUES ('$s_name','$r_name','$acc_no','$namount' ,'$s_newbal')");
+                mysqli_query($con, "UPDATE user SET balance='$s_newbal' WHERE acc_no='$account_number'");
+                mysqli_query($con, "INSERT INTO transaction (p_name,s_name,acc_no,amount,current_bal) VALUES ('$s_name','$r_name','$account_number','$namount' ,'$s_newbal')");
                 mysqli_query($con, "INSERT INTO transaction (p_name,s_name,acc_no,amount,current_bal) VALUES ('$r_name','$s_name','$r_acc_no','$amount','$r_newbal')");
 ?>
                 <script>

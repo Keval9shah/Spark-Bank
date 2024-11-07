@@ -94,7 +94,7 @@ body {
     -webkit-tap-highlight-color: transparent;
 }
 
-.sel1 {
+.current-tab {
     color: black;
     /* font-weight: 600; */
 }
@@ -204,7 +204,6 @@ input {
     padding: 3px 12px;
     width: 100px;
     height: 18px;
-    /* background: rgba(184, 184, 184, 0.75); */
     background-color: rgba(195, 205, 206, 0.76);
     border-radius: 2px 2px 0 0;
 }
@@ -212,7 +211,6 @@ input {
 .backk {
     padding: 0 0 0 6px;
     margin-bottom: 8px;
-    /* background-color: rgba(184, 184, 184, 0.6); */
     background-color: rgba(195, 205, 206, 0.76);
 }
 
