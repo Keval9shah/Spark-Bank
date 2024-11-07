@@ -65,7 +65,7 @@ if (isset($_POST['submit'])) {
 </head>
 
 <body>
-    <div class="scaled-container d-flex">
+    <div class="d-flex">
         <div class="poster-container"><img class="poster-image" src="./assets/images/money.jpg"></div>
         <div class="content-container">
             <img class="logo" src="./assets/images/logo.png" alt="Logo">

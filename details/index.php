@@ -34,15 +34,12 @@ $email = $row['email'];
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- <meta name="viewport" content="width=800, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> -->
     <link rel="icon" type="image/png" href="../assets/images/favicon.png" />
     <title><?php echo $fullname ?></title>
     <link rel="stylesheet" href=".././assets/styles/main-page.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;600&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/clementfive" type="text/css"/> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -69,7 +66,6 @@ $email = $row['email'];
         </div>
     </div>
     <div class="pill"></div>
-
     <div id="profile-content" class="tab-content">
         <?php include('./tabs/profile.php'); ?>
     </div>
@@ -82,7 +78,7 @@ $email = $row['email'];
     <div id="users-list-content" class="tab-content">
         <?php include('./tabs/users_list.php'); ?>
     </div>
-    
+
     <img src="../assets/images/top-veils-prop.png" class="top-veils-prop">
     <img src="../assets/images/vase-prop.png" class="vase-prop">
     <!-- Social Links -->
@@ -96,7 +92,7 @@ $email = $row['email'];
         let currentTab = 'profile';
         const tabs = ['profile', 'transactions', 'send-money', 'users-list'];
 
-        
+
         var balance = <?php echo $row['balance']; ?>;
         var acc_no = <?php echo $row['acc_no']; ?>;
         let tabsContainerWidth;
@@ -107,10 +103,10 @@ $email = $row['email'];
         });
         tabsContainerWidth += 38;
         nav.style.width = tabsContainerWidth + "px";
-        
+
         window.onresize = adjustPill;
         showTab(currentTab);
-        
+
         function showTab(tab) {
             currentTab = tab;
             const element = $('.' + tab + '-tab');
@@ -118,25 +114,25 @@ $email = $row['email'];
                 $("." + tab + "-tab").classList.remove("current-tab");
             });
             element.classList.add("current-tab");
-            
+
             pill.style.left = element.offsetLeft + 1 + "px";
             pill.style.width = element.offsetWidth + 2 + "px";
-            
+
             const partitionBefore = element.previousElementSibling;
             const partitionAfter = element.nextElementSibling;
-            
+
             document.querySelectorAll('.partition').forEach(partition => {
                 partition.style.visibility = "visible";
             });
-            
+
             if (partitionBefore && partitionBefore.classList.contains('partition')) {
                 partitionBefore.style.visibility = "hidden";
             }
-            
+
             if (partitionAfter && partitionAfter.classList.contains('partition')) {
                 partitionAfter.style.visibility = "hidden";
             }
-            
+
             tabs.forEach(tab => {
                 $("#" + tab + "-content").style.display = "none";
             });
@@ -150,18 +146,26 @@ $email = $row['email'];
         }
         // var acc_string=acc_no.toString();
         // var imgs=["0.jpg","1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg"];
-        
+
         // function addAccImages(){
-            // var images="";
-            //     for(i=0;i<8;i++){
-                //         images+="<img class='accimg' src='"+imgs[acc_string[i]]+"'>";
-                //     }
-                //     document.getElementsByClassName("acc_no")[0].innerHTML=images;
-                // }
-                // addAccImages();
-                
-                // set tabs container width
-        </script>
+        // var images="";
+        //     for(i=0;i<8;i++){
+        //         images+="<img class='accimg' src='"+imgs[acc_string[i]]+"'>";
+        //     }
+        //     document.getElementsByClassName("acc_no")[0].innerHTML=images;
+        // }
+        // addAccImages();
+
+        // set tabs container width
+        <?php
+        if(isset($_GET['tr'])){
+            ?>
+            showTab('transactions');
+            <?php
+        } else { ?>
+            showTab('profile');
+        <?php } ?>
+    </script>
 </body>
 
 </html>

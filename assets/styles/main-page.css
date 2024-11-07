@@ -1,11 +1,16 @@
-:root {
-    --receipt_back: white;
-    --dist: 22px;
+html {
+    zoom: 1;
+}
+
+@media (min-width: 1440px) {
+    html {
+        zoom: 1.3;
+    }
 }
 
 @font-face {
-    font-family: 'ClementFive';
-        src: url('../fonts/clementfive/ClementFive.ttf') format('truetype');
+    font-family: "ClementFive";
+    src: url("../fonts/clementfive/ClementFive.ttf") format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -17,23 +22,31 @@
 
 body {
     margin: 0;
-    font-family: 'Josefin Sans', sans-serif;
-    /* background-color: rgb(222, 245, 220); */
-    /* background-color: oldlace; */
+    font-family: "Josefin Sans", sans-serif;
     background-color: rgba(221, 240, 222, 0.9);
-    /* transition: ease-out 1.2s; */
 }
 
-.hi {
-    margin: 0 71px;
+.profile-user-greeting {
     font-size: 80px;
-    /* color: white; */
+    margin: 0 71px;
 }
 
-.em {
+.profile-email {
     font-size: 20px;
     margin: 10px 201px;
     margin-top: 0;
+}
+
+.profile-account-number {
+    margin: 0 10%;
+    font-family: "ClementFive";
+    font-size: 50px;
+    line-height: 1;
+}
+
+.profile-account-number mark {
+    background-color: rgba(255, 255, 0, 0.5);
+    letter-spacing: 27px;
 }
 
 .navigation {
@@ -95,7 +108,7 @@ body {
     /* font-weight: 600; */
 }
 
-.logout{
+.logout {
     font-size: 11px;
     cursor: pointer;
     width: 48px;
@@ -105,34 +118,23 @@ body {
     right: 35px;
 }
 
-.logout svg{
+.logout svg {
     color: rgb(40, 52, 63);
     margin-left: 8px;
     width: 32px;
     height: 32px;
 }
 
-.bal {
+.profile-balance {
     margin: 5px 10%;
     font-size: 72px;
 }
 
-.bala {
+.profile-balance mark {
     background-color: rgba(0, 128, 0, 0.45);
     /* background-color: transparent; */
 }
 
-.acc_no {
-    margin: 0 10%;
-    font-family: 'ClementFive';
-    font-size: 50px;
-    line-height: 1;
-}
-
-.accn {
-    background-color: rgba(255, 255, 0, 0.5);
-    letter-spacing: 27px;
-}
 
 .field {
     height: 15px;
@@ -142,19 +144,13 @@ body {
     /* border-radius: 6px 0 0 6px; */
 }
 
-.answer {
-    height: 35px;
-    font-size: 14px;
-    /* border-radius: 6px 0 0 6px; */
-}
-
 input {
-    height: 29px;
+    height: 30px;
     padding: 0 15px;
     border: 2px solid #d4d4d4ea;
-    font-size: 13px;
+    font-size: 12px;
     outline: none;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
 }
 
 .fields {
@@ -178,23 +174,15 @@ input {
     cursor: pointer;
 }
 
-#rec {
+#transaction-receiver-input {
     width: 220px;
 }
 
-#ana {
+#transaction-amount-input {
     width: 150px;
 }
 
-
-/* .fl {
-    display: flex;
-} */
-
-
-/* new change */
-
-.dtind {
+.transaction-date-label {
     font-size: 16px;
     box-shadow: inset 0 -1px 3px rgba(187, 187, 187, 0.5);
     padding: 3px 12px;
@@ -204,22 +192,20 @@ input {
     border-radius: 2px 2px 0 0;
 }
 
-.backk {
+.transaction-group {
     padding: 0 0 0 6px;
     margin-bottom: 8px;
     background-color: rgba(195, 205, 206, 0.76);
 }
 
-
-/* extraaaaaaaaaaaaaaaaaaaa */
-
-.flbal {
-    /* float: right;
-    margin-top: 95px;
-    margin-right: 60px; */
+.send-money-balance {
     position: absolute;
     right: 95px;
     top: 152px;
+}
+
+.send-money-balance div span {
+    font-size: 40px;
 }
 
 .top-veils-prop {
@@ -240,14 +226,9 @@ input {
     width: 230px;
 }
 
-.flbal1 span {
-    font-size: 40px;
-}
-
 .trhistory {
     margin: 10px auto;
 }
-
 
 /* tran history */
 
@@ -281,19 +262,18 @@ input {
     border-radius: 5px;
 }
 
-.containerx {
+.table-content {
     margin-top: -10px;
     font-family: "lato", sans-serif;
     width: 650px;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 10px;
     padding-right: 5px;
     height: 400px;
     overflow-y: scroll;
 }
 
-.containerx1 {
+.table {
     margin-top: -15px;
     font-family: "lato", sans-serif;
     width: 650px;
@@ -301,42 +281,25 @@ input {
     margin-right: auto;
     padding-left: 10px;
     padding-right: 10px;
-    height: 40px;
 }
 
-.ulx1 {
-    margin-left: 10px;
+.table-header-adjustment {
     margin-right: -5px;
 }
 
 
-/* .containerx::-webkit-scrollbar {
-    width: 10px;
-} */
-
-.containerx::-webkit-scrollbar {
+/* scrollbar */
+.table-content::-webkit-scrollbar {
     width: 7px;
 }
 
-
-/* Track */
-
-
-/* .containerx::-webkit-scrollbar-track {
-    background: #f1f1f1;
-} */
-
-
-/* Handle */
-
-.containerx::-webkit-scrollbar-thumb {
+.table-content::-webkit-scrollbar-thumb {
     background: rgb(136, 136, 136);
 }
 
-
 /* Handle on hover */
 
-.containerx::-webkit-scrollbar-thumb:hover {
+.table-content::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
 
@@ -357,6 +320,9 @@ input {
     background-color: #ffffff;
     color: rgb(34, 34, 34, 0.95);
     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.18);
+}
+#users-list .table-row {
+    cursor: pointer;
 }
 
 .responsive-table .col-1 {
@@ -398,10 +364,6 @@ ul {
 
 .responsive-table .cola-4 {
     flex-basis: 23%;
-}
-
-.trn {
-    cursor: pointer;
 }
 
 .cola {
@@ -477,70 +439,21 @@ ul {
     width: 40%;
 }
 
-
-/* .social-button::after {
-    content: "";
-    position: absolute;
-    top: 35.355%;
-    left: 35.355%;
-    display: block;
-    width: 0;
-    height: 0;
-    border-radius: 100%;
-    transition: 0.15s;
-} */
-
-
-/* .social-button:focus,
-.social-button:hover {
-    color: #fff;
-} */
-
-
-/* .social-button:focus::after,
-.social-button:hover::after {
-    width: calc(100% - var(--dist));
-    height: calc(100% - var(--dist));
-    margin-top: calc(-35.355% + var(--dist)/2);
-    margin-left: calc(-35.355% + var(--dist)/2);
-} */
-
 .social-button--mail {
     color: #0072c6;
 }
-
-
-/* .social-button--mail::after {
-    background: #0072c6;
-} */
 
 .social-button--facebook {
     color: #3b5999;
 }
 
-
-/* .social-button--facebook::after {
-    background: #3b5999;
-} */
-
 .social-button--linkedin {
     color: #0077b5;
 }
 
-
-/* .social-button--linkedin::after {
-    background: #0077b5;
-} */
-
 .social-button--github {
     color: #d83a66;
 }
-
-
-/* .social-button--github::after {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    ;
-} */
 
 .social-button--codepen {
     color: #212121;
@@ -572,14 +485,6 @@ ul {
 
 .social-button--instagram::after {
     background: #e4405f;
-}
-
-.social-button--npmjs {
-    color: #c12127;
-}
-
-.social-button--npmjs::after {
-    background: #c12127;
 }
 
 a {
@@ -628,7 +533,6 @@ a {
     width: 530px;
 }
 
-
 /* datepicker */
 
 form {
@@ -636,7 +540,7 @@ form {
     /* margin: 5px 0; */
 }
 
-.frstwrap {
+.date-input-form-container {
     display: flex;
     justify-content: space-between;
 }
@@ -649,7 +553,7 @@ form {
     padding: 0 3px 0 8px;
 }
 
-.frto {
+.date-input-form {
     background: rgb(202, 214, 211);
     border-radius: 5px;
 }
